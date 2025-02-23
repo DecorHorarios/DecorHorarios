@@ -82,8 +82,26 @@ document.getElementById('form-horario').addEventListener('submit', e => {
     }).then(() => {
         alert('Horario agregado con éxito');
         cargarHorarios();
+        limpiarFormulario();
     });
 });
+
+// Editar un horario
+function editarHorario(fila) {
+    const nuevosDatos = prompt('Ingresa los nuevos datos separados por comas: Día,Inicio,Fin,Descripción,Semana');
+    if (nuevosDatos) {
+        const valores = nuevosDatos.split(',');
+        gapi.client.sheets.spreadsheets.values.update({
+            spreadsheetId: SHEET_ID,
+            range: `Horarios!A${fila}:E${fila}`,
+            valueInputOption: 'RAW',
+            resource: { values: [valores] }
+        }).then(() => {
+            alert('Horario editado con éxito');
+            cargarHorarios();
+        });
+    }
+}
 
 // Eliminar un horario
 function eliminarHorario(fila) {
@@ -110,7 +128,7 @@ function eliminarHorario(fila) {
 // Cargar la API al abrir la página
 window.onload = handleClientLoad;
 
-// Código original para funcionalidades adicionales
+// Código adicional para funcionalidades
 function mostrarSemana(semana) {
     document.getElementById('semana-actual').classList.add('hidden');
     document.getElementById('semana-siguiente').classList.add('hidden');
