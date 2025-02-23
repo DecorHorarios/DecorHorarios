@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horario Semanal</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Título */
+        h1 {
+            color: #333;
+            font-size: 24px;
+        }
+
+        /* Botones */
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Selects e inputs */
+        select, input {
+            padding: 8px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Tabla */
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        /* Celdas */
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Fila de los días de la semana */
+        table th {
+            background-color: #007bff; /* Azul */
+            color: white;
+            font-size: 16px;
+        }
+
+        /* Celdas ocupadas */
+        .occupied {
+            background-color: #dc3545; /* Rojo */
+            color: white;
+        }
+
+        /* Input de clave de edición */
+        #clave {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        /* Tablas ocultas */
+        .hidden {
+            display: none;
+        }
+
+        /* Estilo para las filas de la tabla cuando no están ocupadas */
+        td[data-ocupado="false"] {
+            background-color: #f8f9fa;
+        }
+
+        /* Estilo para el borde de la tabla */
+        table, th, td {
+            border-color: #ddd;
+        }
+    </style>
+</head>  
+<body>  
+    <h1>Horario Semanal</h1>  
+    <button onclick="mostrarSemana('actual')">Semana Actual</button>  
+    <button onclick="mostrarSemana('siguiente')">Semana Siguiente</button>  
+    <button onclick="cambiarSemana()" id="boton-cambiar" class="hidden">Cambiar Semana</button> <!-- Botón oculto inicialmente -->
+    <br><br>  
+    <div id="semana-actual">  
+        <h2>Semana Actual</h2>  
+        <table id="tabla-actual">  
+            <tr>  
+                <th>Hora</th>  
+                <th>Lunes</th>  
+                <th>Martes</th>  
+                <th>Miércoles</th>  
+                <th>Jueves</th>  
+                <th>Viernes</th>  
+                <th>Sábado</th>  
+            </tr>  
+        </table>  
+    </div>  
+    <div id="semana-siguiente" class="hidden">  
+        <h2>Semana Siguiente</h2>  
+        <table id="tabla-siguiente">  
+            <tr>  
+                <th>Hora</th>  
+                <th>Lunes</th>  
+                <th>Martes</th>  
+                <th>Miércoles</th>  
+                <th>Jueves</th>  
+                <th>Viernes</th>  
+                <th>Sábado</th>  
+            </tr>  
+        </table>  
+    </div>  
+    <br>  
+    <select id="dia">  
+        <option value="1">Lunes</option>  
+        <option value="2">Martes</option>  
+        <option value="3">Miércoles</option>  
+        <option value="4">Jueves</option>  
+        <option value="5">Viernes</option>  
+        <option value="6">Sábado</option>  
+    </select>  
+    <select id="hora-inicio"></select>  
+    <select id="hora-fin"></select>  
+    <input type="text" id="descripcion" placeholder="Descripción">  
+    <select id="seleccion-semana">  
+        <option value="actual">Semana Actual</option>  
+        <option value="siguiente">Semana Siguiente</option>  
+    </select>  
+    <button onclick="agregarHorario()">OK</button>  
+    <br><br>  
+    <input type="password" id="clave" placeholder="Clave de edición">  
+    <button onclick="verificarClave()">Ingresar</button>  
+    <button id="borrar" class="hidden" onclick="borrarHorario()">Borrar</button>  
+    <script src="script.js"></script> <!-- Enlace al archivo script.js -->
+</body>  
+</html>

@@ -1,0 +1,93 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Título */
+h1 {
+    color: #333;
+    font-size: 24px;
+}
+
+/* Botones */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Selects e inputs */
+select, input {
+    padding: 8px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Tabla */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Celdas */
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Fila de los días de la semana */
+table th {
+    background-color: #007bff; /* Azul */
+    color: white;
+    font-size: 16px;
+}
+
+/* Celdas ocupadas */
+.occupied {
+    background-color: #dc3545; /* Rojo */
+    color: white;
+}
+
+/* Input de clave de edición */
+#clave {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* Tablas ocultas */
+.hidden {
+    display: none;
+}
+
+/* Estilo para las filas de la tabla cuando no están ocupadas */
+td[data-ocupado="false"] {
+    background-color: #f8f9fa;
+}
+
+/* Estilo para el borde de la tabla */
+table, th, td {
+    border-color: #ddd;
+}
